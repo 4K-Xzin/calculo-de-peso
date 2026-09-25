@@ -5,12 +5,9 @@ def calcular_imc():
 try:
     peso = float(input("Digite o seu peso: "))
     altura = float(input("Digite a sua altura: "))
-
     imc = peso / (altura ** 2)
-
     print("\n" + "-" * 30)
     print(f"Seu IMC atual é: {imc:.2f}")
-
     if imc < 18.5:
         print("Classificação: Abaixo do peso")
     elif 18.5 <= imc < 25:
@@ -20,6 +17,5 @@ try:
     else:
         print("Classificação: Obesidade")
     print("-" * 30)
-
 except ValueError:
     print("Por favor, digite números válidos!")
