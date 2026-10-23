@@ -2,20 +2,26 @@ def calcular_imc():
     print("=" * 30)
     print(" sistema de calculo de peso")
     print("=" * 30)
-try:
-    peso = float(input("Digite o seu peso: "))
-    altura = float(input("Digite a sua altura: "))
-    imc = peso / (altura ** 2)
-    print("\n" + "-" * 30)
-    print(f"Seu IMC atual é: {imc:.2f}")
-    if imc < 18.5:
-        print("Classificação: Abaixo do peso")
-    elif 18.5 <= imc < 25:
-        print("Classificação: Peso normal")
-    elif 25 <= imc < 30:
-        print("Classificação: Sobrepeso")
-    else:
-        print("Classificação: Obesidade")
-    print("-" * 30)
-except ValueError:
-    print("Por favor, digite números válidos!")
+    while True:
+        try:
+            peso = float(input("Digite o seu peso (ou 0 para sair): "))
+            if peso == 0:
+                print("Sistema encerrado. Até logo!")
+                break
+
+            altura = float(input("Digite a sua altura: "))
+            imc = peso / (altura ** 2)
+            print("\n" + "-" * 30)
+            print(f"Seu IMC atual é: {imc:.2f}")
+            if imc < 18.5:
+                print("Classificação: Abaixo do peso")
+            elif 18.5 <= imc < 25: # Ajustado para < 25 (o padrão correto)
+                print("Classificação: Peso normal")
+            elif 25 <= imc <= 30:
+                print("Classificação: Sobrepeso")
+            else:
+                print("Classificação: Obesidade")
+            print("-" * 30 + "\n")           
+        except ValueError:
+            print("\nPor favor, digite números válidos usando ponto (ex: 70.5 ou 1.75)!\n")
+calcular_imc()
